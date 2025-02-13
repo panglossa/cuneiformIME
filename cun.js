@@ -34,7 +34,7 @@ function updatecandidates(){
 				}
 			});
     if (ismatch) {
-    	candidates.innerHTML += ' ' + '<a href="#" onclick="javascript:insertglyph(' + "'" + row[0] + "'" + ');">' + row[0] + '</a>';
+    	candidates.innerHTML += ' ' + '<a href="#" onclick="javascript:insertglyph(' + "'" + row[0] + "'" + ');return false;">' + row[0] + '</a>';
     	}
 	});
 	}
