@@ -1,0 +1,136 @@
+body {
+	font-size: 20pt;
+	}
+	
+textarea {
+	font-size: 125%;
+	}
+
+p {
+	font-size: 10pt;
+	}	
+#imepanel {
+	width:100%;
+	}
+#maininput, #inputpanel {
+	width:45%;
+	display:inline-block;
+	height:100%;
+	vertical-align: top;
+	}
+#buffer {
+	min-height: 2em;
+	border:1px solid silver;
+	}
+
+#candidates {
+	min-height: 2em;
+	border:1px solid gray;
+	}
+
+#candidates a {
+	display: inline-block;
+	text-decoration: none;
+	border:1px solid silver;
+	color: black;
+	font-size:125%;
+	}
+
+h1 {
+	text-align: center;
+	}
+
+#buttons button {
+	background-size: cover;
+	cursor: pointer;
+   width: 40px;
+   height: 40px;      
+	}
+	
+#btn_horizontalwedge {
+	background-image: url('media/horizontalwedge.png');
+	}
+
+#btn_verticalwedge {
+	background-image: url('media/verticalwedge.png');
+	}
+
+#btn_verticalinvertwedge {
+	background-image: url('media/verticalinvertwedge.png');
+	}
+	
+#btn_diagwedgeNWSE {
+	background-image: url('media/diagwedgeNW-SE.png');
+	}
+
+#btn_diagwedgeSWNE {
+	background-image: url('media/diagwedgeSW-NE.png');
+	}
+	
+#btn_diagwedgeNESW {
+	background-image: url('media/diagwedgeNE-SW.png');
+	}
+
+#btn_diagwedgeSENW {
+	background-image: url('media/diagwedgeSE-NW.png');
+	}
+
+#btn_Uwedge {
+	background-image: url('media/Uwedge.png');
+	}
+
+#buffer img {
+   width: 30px;
+   height: 30px;      
+	}
+	
+.horizontalwedge img {
+	content:url('media/horizontalwedge.png');
+	}
+	
+.verticalwedge img {
+	content:url('media/verticalwedge.png');
+	}
+	
+.verticalinvertwedge img {
+	content:url('media/verticalinvertwedge.png');
+	}
+	
+.diagwedgeNWSE img {
+	content:url('media/diagwedgeNW-SE.png');
+	}
+
+.diagwedgeSWNE img {
+	content:url('media/diagwedgeSW-NE.png');
+	}
+	
+.diagwedgeNESW img {
+	content:url('media/diagwedgeNE-SW.png');
+	}
+
+.diagwedgeSENW img {
+	content:url('media/diagwedgeSE-NW.png');
+	}
+
+.Uwedge img {
+	content:url('media/Uwedge.png');
+	}
+	
+	
+
+#buffer div {
+	display: inline-block;
+	height: 30px;
+	width: 30px;
+	}
+
+
+
+
+
+
+
+
+
+
+

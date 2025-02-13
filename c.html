@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuneiform Input</title>
+    <link rel="stylesheet" href="cun.css">
+    <script src="cun.js"></script>
+</head>
+<body>
+<h1>Cuneiform Input Method</h1>
+<p>Click the basic strokes (wedges) to "draw" a cuneiform character, then look for it in the candidates list that appears.</p>
+<div id="imepanel">
+<textarea id="maininput"></textarea>
+<div id="inputpanel">
+<div id="buttons">
+<button id="btn_horizontalwedge" onclick="javascript:addstroke('horizontalwedge');"> </button>
+<button id="btn_verticalwedge" onclick="javascript:addstroke('verticalwedge');"> </button>
+<button id="btn_diagwedgeNWSE" onclick="javascript:addstroke('diagwedgeNWSE');"> </button>
+<button id="btn_diagwedgeSENW" onclick="javascript:addstroke('diagwedgeSENW');"> </button>
+<button id="btn_diagwedgeSWNE" onclick="javascript:addstroke('diagwedgeSWNE');"> </button>
+<button id="btn_diagwedgeNESW" onclick="javascript:addstroke('diagwedgeNESW');"> </button>
+<button id="btn_verticalinvertwedge" onclick="javascript:addstroke('verticalinvertwedge');"> </button>
+
+<button id="btn_Uwedge" onclick="javascript:addstroke('Uwedge');"> </button>
+&nbsp;
+<button onclick="javascript:backspace();">⇐</button>
+<button onclick="javascript:clearall('');">x</button>
+</div>
+<div id="buffer"></div>
+<div id="candidates"></div>
+</div>
+</div>
+</body>
+</html>
