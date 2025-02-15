@@ -3,7 +3,7 @@ A simple way to select cuneiform characters based on the strokes they are compos
 
 This is a very basic input method for Cuneiform, the idea being that you "draw" each character by clicking on the simple strokes that compose such character.
 
-You can see it in action here: [https://htmlpreview.github.io/?https://github.com/panglossa/cuneiformIME/blob/main/index.html](https://htmlpreview.github.io/?https://github.com/panglossa/cuneiformIME/blob/main/index.html){:target="_blank"}
+You can see it in action here: <a href="https://htmlpreview.github.io/?https://github.com/panglossa/cuneiformIME/blob/main/index.html" target="htmlpreview">https://htmlpreview.github.io/?https://github.com/panglossa/cuneiformIME/blob/main/index.html</a>
 
 As there is no standard stroke order (like in Hanzi/Kanji, for example), I try to include as many variations as I can think of, for characters whose stroke order is not totally evident. So, for example, for a character such as 𒑟 there is no question about the stroke order (first `𒁹`, then `𒀹`); but for a character such as 𒑢, you could either draw the diagonal strokes first, then the horizontal ones (i.e., `𒀹 𒀹 𒀸 𒀸` ), or you could write the combination diagonal-horizontal, then repeat it (i.e., `𒀹 𒀸 𒀹 𒀸`). Here both stroke sequences are valid.
 
