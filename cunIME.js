@@ -15,7 +15,7 @@ fetch('./cunIMEglyphdata.csv')
   });
   
 favourites = localStorage.getItem('favourites');
-console.log(favourites);
+//console.log(favourites);
 if ((favourites=='')||(favourites==null)) {
 	favourites = [];
 	} else {
@@ -203,7 +203,29 @@ function clearfavourites() {
 	favouriteglyphs.innerHTML = '';
 	}
 
+function selectfont(fontname) {
+	localStorage.setItem('selectedfont', fontname);
+	document.querySelectorAll('#fontselection a').forEach(function(elem) {
+    	elem.classList.remove('selected');
+		});
+	document.querySelector('#' + fontname).classList.add('selected');
+	if (fontname=='Noto') {
+		fontname = 'Noto Sans Cuneiform';
+		}
+	document.querySelector('#maininput').style.fontFamily = fontname;
+	document.querySelector('#candidates').style.fontFamily = fontname;
+	document.querySelector('#favouriteglyphs').style.fontFamily = fontname;
+	}
+	
+///////////////////////////////////////
 window.onload = function () {
+	selectedfont = localStorage.getItem('selectedfont');
+	if ((selectedfont=='')||(selectedfont==null)) {
+		selectedfont = 'Noto Sans Cuneiform';
+		}
+	//alert(selectedfont);
+	selectfont(selectedfont);
+	
 	favouriteglyphs = document.getElementById('favouriteglyphs');
 	favouriteglyphs.innerHTML = '';
 	for (i = 0; i < favourites.length; i++) {
@@ -211,4 +233,4 @@ window.onload = function () {
 			favouriteglyphs.innerHTML += ' ' + '<a href="#" title="Click to insert this character" onclick="javascript:insertglyph(' + "'" + favourites[i]['glyph'] + "'" + ');return false;">' + favourites[i]['glyph'] + '</a>';
 			}
 		}
-}
+	}	

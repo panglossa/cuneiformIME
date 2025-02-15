@@ -16,7 +16,18 @@
 <textarea id="maininput"></textarea><br/>
 <button onclick="javascript:texttoclipboard();return false;">📋</button>
 <button onclick="javascript:cleartext();return false;">🗑</button>
-</div>
+<div id="fontselection">
+Font selection: <i>(click to change)</i>
+<ul>
+<li><a id ="Akkadian" href="#" onclick="selectfont('Akkadian');return false;"><b>Akkadian</b>: Unicode font with Sumero-Akkadian Cuneiform, Cuneiform Numbers and Punctuation, Early Dynastic Cuneiform, and Neo-Assyrian signs.</a></li>
+<li><a id ="Noto" href="#" onclick="selectfont('Noto');return false;"><b>Noto Sans Cuneiform</b>: "is an unmodulated (“sans serif”) design for texts in the historical Middle Eastern Sumero-Akkadian cuneiform script. It has 1,239 glyphs."</a></li>
+<li><a id ="CuneiformNAOutline" href="#" onclick="selectfont('CuneiformNAOutline');return false;"><b>CuneiformNAOutline</b>: Sumerian & Neo-Assyrian</a></li>
+<li><a id ="Sinacherib" href="#" onclick="selectfont('Sinacherib');return false;"><b>Sinacherib</b>: Neo-Assyrian</a></li>
+<li><a id ="Assurbanipal" href="#" onclick="selectfont('Assurbanipal');return false;"><b>Assurbanipal</b>: Neo-Assyrian</a></li>
+<li><a id ="SantakkuM" href="#" onclick="selectfont('SantakkuM');return false;"><b>SantakkuM</b>: Old Babylonian, momumental script (Hammurabi)</a></li>
+<li><a id ="Santakku" href="#" onclick="selectfont('Santakku');return false;"><b>Santakku</b>: Old Babylonian, cursive script</a></li>
+</ul>
+</div></div>
 <div id="inputpanel">
 <div id="buttons">
 <button id="btn_horizontalwedge" onclick="javascript:addstroke('horizontalwedge');return false;"> </button>
