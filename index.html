@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/ico" href="favicon.ico" />
+    <title>Cuneiform Input</title>
+    <link rel="stylesheet" href="cunIME.css">
+    <script src="cunIME.js"></script>
+</head>
+<body>
+<h1>Cuneiform Input Method</h1>
+<p>Click the basic strokes (wedges) to "draw" a cuneiform character, then look for it in the candidates list that appears.</p>
+<div id="imepanel">
+<div id="maintext">
+<textarea id="maininput"></textarea><br/>
+<button onclick="javascript:texttoclipboard();return false;">📋</button>
+<button onclick="javascript:cleartext();return false;">🗑</button>
+</div>
+<div id="inputpanel">
+<div id="buttons">
+<button id="btn_horizontalwedge" onclick="javascript:addstroke('horizontalwedge');return false;"> </button>
+<button id="btn_verticalwedge" onclick="javascript:addstroke('verticalwedge');return false;"> </button>
+<button id="btn_diagwedgeNWSE" onclick="javascript:addstroke('diagwedgeNWSE');return false;"> </button>
+<button id="btn_diagwedgeSENW" onclick="javascript:addstroke('diagwedgeSENW');return false;"> </button>
+<button id="btn_diagwedgeSWNE" onclick="javascript:addstroke('diagwedgeSWNE');return false;"> </button>
+<button id="btn_diagwedgeNESW" onclick="javascript:addstroke('diagwedgeNESW');return false;"> </button>
+<button id="btn_verticalinvertwedge" onclick="javascript:addstroke('verticalinvertwedge');return false;"> </button>
+
+<button id="btn_Uwedge" onclick="javascript:addstroke('Uwedge');return false;"> </button>
+&nbsp;
+<button onclick="javascript:backspace();return false;">⇐</button>
+<button onclick="javascript:clearall();return false;">x</button>
+</div>
+<div id="buffer"></div>
+<div id="candidates"></div>
+</div>
+<div id="favourites">
+<h6>Favourites</h6>
+<div id="favouriteglyphs"></div>
+<button onclick="javascript:clearfavourites();return false;">🗑</button>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
