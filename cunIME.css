@@ -12,9 +12,11 @@ textarea {
 p {
 	font-size: 10pt;
 	}	
+
 #imepanel {
 	width:100%;
 	}
+
 #maintext, #inputpanel {
 	width:40%;
 	display:inline-block;
@@ -28,6 +30,7 @@ p {
 	height:100%;
 	vertical-align: top;
 	}
+
 #buffer {
 	min-height: 2em;
 	border:1px solid silver;
@@ -98,6 +101,45 @@ button {
 	background-image: url('media/Uwedge.png');
 	}
 
+#btn_horizontalUwedge {
+	background-image: url('media/horizontalUwedge.png');
+	}
+
+/*double strokes*/
+	
+#btn_horizontalwedge2 {
+	background-image: url('media/horizontalwedge2.png');
+	}
+
+#btn_verticalwedge2 {
+	background-image: url('media/verticalwedge2.png');
+	}
+
+#btn_verticalinvertwedge2 {
+	background-image: url('media/verticalinvertwedge2.png');
+	}
+	
+#btn_diagwedgeNWSE2 {
+	background-image: url('media/diagwedgeNW-SE2.png');
+	}
+
+#btn_diagwedgeSWNE2 {
+	background-image: url('media/diagwedgeSW-NE2.png');
+	}
+	
+#btn_diagwedgeNESW2 {
+	background-image: url('media/diagwedgeNE-SW2.png');
+	}
+
+#btn_diagwedgeSENW2 {
+	background-image: url('media/diagwedgeSE-NW2.png');
+	}
+
+#btn_Uwedge2 {
+	background-image: url('media/Uwedge2.png');
+	}
+
+
 #buffer img {
    width: 30px;
    height: 30px;      
@@ -134,8 +176,6 @@ button {
 .Uwedge img {
 	content:url('media/Uwedge.png');
 	}
-	
-	
 
 #buffer div {
 	display: inline-block;
@@ -143,9 +183,9 @@ button {
 	width: 30px;
 	}
 
-.selected {
-	text-decoration: underline overline;
-	}
+.selected ::before {
+  content: "⇒";
+}
 
 
 

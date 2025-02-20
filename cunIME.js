@@ -7,9 +7,15 @@ fetch('./cunIMEglyphdata.csv')
   .then(response => response.text())
   .then((data) => {
   	const rows = data.split('\n');
+  	let i=1;
 	rows.forEach(function (row) {
 		parts = row.split(',');
-		glyphdata.push(parts);
+		if (parts.length<2) {
+			console.log('Wrong format in line ' + i + ': ' + row);
+			} else {
+			glyphdata.push(parts);
+			}
+		i++;
 		} ); 
 	//console.log(glyphdata);
   });
@@ -90,8 +96,12 @@ function updatecandidates(){
 	buffer = document.getElementById('buffer');
 	candidates = document.getElementById('candidates');
 	candidates.innerHTML = '';
+	if (glyphdata.length > 0) {
 	glyphdata.forEach(function(row) {
 		ismatch = false;
+		if (row.length<2) {
+			console.log(row);
+			}
 		parts = row[1].split(';');
 		parts.forEach(function(part) {
 			if (part.startsWith(strokes.join(''))) {
@@ -103,11 +113,19 @@ function updatecandidates(){
     	candidates.innerHTML += ' ' + '<a title="Click to insert this character" href="#" onclick="javascript:insertglyph(' + "'" + row[0] + "'" + ');return false;">' + row[0] + '</a>';
     	}
 	});
+    	}
 	}
 
-function addstroke(s) {
+function addstroke(s, q = 1) {
 	buffer = document.getElementById('buffer');
-	buffer.innerHTML += '<div class="' + s + '"><img /></div>';
+	for (let i = 1; i<=q; i++) {
+		if (s=='horizontalUwedge') {
+			buffer.innerHTML += '<div class="horizontalwedge"><img /></div><div class="Uwedge"><img /></div>';
+			} else {
+			buffer.innerHTML += '<div class="' + s + '"><img /></div>';
+			}
+		}
+	
 	newstroke = '';
 	switch(s) {
 		case 'horizontalwedge':
@@ -134,8 +152,19 @@ function addstroke(s) {
 		case 'Uwedge':
 			newstroke = '𒌋';
 			break;
+		case 'horizontalUwedge':
+			newstroke = '𒀸𒌋';
+			break;
 		}
-	strokes.push(newstroke);
+		
+	for (let i = 1; i<=q; i++) {
+		if (newstroke=='𒀸𒌋') {
+			strokes.push('𒀸');
+			strokes.push('𒌋');
+			} else {
+			strokes.push(newstroke);
+			}
+		}
 	updatecandidates();
 	}
 	
