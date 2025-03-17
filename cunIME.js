@@ -513,6 +513,6 @@ window.onload = function () {
 			favouriteglyphs.innerHTML += ' ' + '<a href="#" title="Click to insert this character" onclick="javascript:insertglyph(' + "'" + favourites[i]['glyph'] + "'" + ');return false;">' + favourites[i]['glyph'] + '</a>';
 			}
 		}
-	switchtab(1);
+	switchtab(0);
 	}	
 	
