@@ -29,6 +29,15 @@ Font selection: <i>(click to change)</i>
 </ul>
 </div></div>
 <div id="inputpanel">
+<table id="tabs">
+<tr>
+<td><a href="#" onclick="switchtab(0);">Strokes</a></td>
+<td><a href="#" onclick="switchtab(1);">Syllabic</a></td>
+<td><a href="#" onclick="switchtab(2);">Pronunciation</a></td>
+<td><a href="#" onclick="switchtab(3);">Meaning</a></td>
+</tr>
+</table>
+<div id="strokeinput">
 <div id="buttons">
 <button id="btn_horizontalwedge" onclick="javascript:addstroke('horizontalwedge');return false;"> </button>
 <button id="btn_verticalwedge" onclick="javascript:addstroke('verticalwedge');return false;"> </button>
@@ -50,15 +59,88 @@ Font selection: <i>(click to change)</i>
 <!-- <button id="btn_verticalinvertwedge2" onclick="javascript:addstroke('verticalinvertwedge', 2);return false;"> </button> -->
 <button id="btn_Uwedge2" onclick="javascript:addstroke('Uwedge', 2);return false;"> </button>
 <button id="btn_horizontalUwedge" onclick="javascript:addstroke('horizontalUwedge');return false;"> </button>
+<button id="btn_finished" onclick="javascript:addstroke('finished');return false;"> ✅ </button>
 </div>
 <div id="buffer"></div>
 <div id="candidates"></div>
+</div>
+<div id="syllableinput">
+<!-- Syllabic -->
+<table id="syllablebuilder">
+<tr>
+<td>C</td>
+<td>V</td>
+<td>C</td>
+</tr>
+
+<tr>
+<td>
+<a href="#" onclick="composesyllable(0, 'Ø')">Ø</a>
+<a href="#" onclick="composesyllable(0, 'k')">k</a>
+<a href="#" onclick="composesyllable(0, 'g')">g</a>
+<a href="#" onclick="composesyllable(0, 'q')">q</a>
+<a href="#" onclick="composesyllable(0, 'p')">p</a>
+<a href="#" onclick="composesyllable(0, 'b')">b</a>
+<a href="#" onclick="composesyllable(0, 't')">t</a>
+<a href="#" onclick="composesyllable(0, 'ṭ')">ṭ</a>
+<a href="#" onclick="composesyllable(0, 'd')">d</a>
+<a href="#" onclick="composesyllable(0, 'm')">m</a>
+<a href="#" onclick="composesyllable(0, 'n')">n</a>
+<a href="#" onclick="composesyllable(0, 's')">s</a>
+<a href="#" onclick="composesyllable(0, 'z')">z</a>
+<a href="#" onclick="composesyllable(0, 'ṣ')">ṣ</a>
+<a href="#" onclick="composesyllable(0, 'š')">š</a>
+<a href="#" onclick="composesyllable(0, 'h')">h</a>
+<a href="#" onclick="composesyllable(0, 'l')">l</a>
+<a href="#" onclick="composesyllable(0, 'r')">r</a>
+<a href="#" onclick="composesyllable(0, 'y')">y</a>
+<a href="#" onclick="composesyllable(0, 'w')">w</a>
+<a href="#" onclick="composesyllable(0, 'x')">'</a>
+
+</td>
+<td>
+<a href="#" onclick="composesyllable(1, 'a')">a</a>
+<a href="#" onclick="composesyllable(1, 'e')">e</a>
+<a href="#" onclick="composesyllable(1, 'i')">i</a>
+<a href="#" onclick="composesyllable(1, 'u')">u</a>
+</td>
+
+<td>
+<a href="#" onclick="composesyllable(2, 'k/g/q')">k/g/q</a>
+<a href="#" onclick="composesyllable(2, 'p/b')">p/b</a>
+<a href="#" onclick="composesyllable(2, 't/ṭ/d')">t/ṭ/d</a>
+<a href="#" onclick="composesyllable(2, 'm')">m</a>
+<a href="#" onclick="composesyllable(2, 'n')">n</a>
+<a href="#" onclick="composesyllable(2, 's/z/ṣ')">s/z/ṣ</a>
+<a href="#" onclick="composesyllable(2, 'š')">š</a>
+<a href="#" onclick="composesyllable(2, 'h')">h</a>
+<a href="#" onclick="composesyllable(2, 'l')">l</a>
+<a href="#" onclick="composesyllable(2, 'r')">r</a>
+<a href="#" onclick="composesyllable(2, 'Ø')">Ø</a>
+
+</td>
+</tr>
+
+</table>
+<div id="syllablecomposerdisplay">
+<span id="cvc0"></span>
+<span id="cvc1"></span>
+<span id="cvc2"></span>
+</div>
+<div id="candidates_cvc"></div>
+<!-- End Syllabic -->
+</div>
+<div id="pronunciationinput"><p>Search by reading <i>(Sumerian/Akkadian)</i>: <input type="text" id="phonetic" name="phonetic" onkeyup="javascript:searchphonetic();"/><button onclick="javascript:clearall();return false;">x</button><br/></p><br/><div id="buffer_phonetic"></div>
+<div id="candidates_phonetic"></div>
+</div>
+<div id="meaninginput"><p>Search by meaning <i>(Sumerian/Akkadian)</i>: <input type="text" id="semantic" name="semantic" onkeyup="javascript:searchsemantic();"/><button onclick="javascript:clearall();return false;">x</button><br/></p><br/><div id="buffer_semantic"></div>
+<div id="candidates_semantic"></div>
+</div>
 </div>
 <div id="favourites">
 <h6>Favourites</h6>
 <div id="favouriteglyphs"></div>
 <button onclick="javascript:clearfavourites();return false;">🗑</button>
-</div>
 </div>
 </div>
 </div>

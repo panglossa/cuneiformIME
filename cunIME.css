@@ -187,8 +187,59 @@ button {
   content: "⇒";
 }
 
+#tabs {
+	width: 100%;
+	font-size:10pt;
+	td {
+		background-color: rgba(192, 192, 192, 0.466);
+		border-top-right-radius: 1ex;
+		border-top-left-radius: 1ex;
+		text-align: center;
+		border-bottom: 1px black solid;
+		width:25%;
+		}
+	}
+
+.Xcons {
+      color:rgb(155,155,155);
+	  }
+
+.cunsyllable{
+	font-size:200%;
+	}
+
+.latsyllable {
+	font-size:85%;
+	color:grey;
+	}
 
 
+#syllableinput {
+	/* font-size: 50%; */
+	width: 100%;
+	
+	
+	td:first-child {
+		text-align: right;
+		}
+	
+	td:nth-child(2) {
+		width:5em;
+		text-align: center;
+		}
+	
+	td:nth-child(3) {
+		text-align: left;
+		}
+	}
+
+#syllablecomposerdisplay {
+	text-align: center;
+	}
+
+#candidates_cvc {
+	text-align: center;
+	}
 
 
 
