@@ -1,5 +1,6 @@
 body {
 	font-size: 20pt;
+	background-image: url('background-clay02.jpg');
 	}
 #fontselection {
 	font-size: 10pt;
@@ -7,6 +8,7 @@ body {
 textarea {
 	font-size: 125%;
 	width:95%;
+	background-color: rgba(255,255,255,0.5);
 	}
 
 p {
@@ -15,6 +17,7 @@ p {
 
 #imepanel {
 	width:100%;
+	background-color: rgba(255,255,255,0.5);
 	}
 
 #maintext, #inputpanel {
@@ -66,7 +69,8 @@ button {
 	background-size: cover;
 	cursor: pointer;
    width: 40px;
-   height: 40px;      
+   height: 40px;
+	background-color: transparent;      
 	}
 	
 #btn_horizontalwedge {
@@ -187,6 +191,12 @@ button {
   content: "⇒";
 }
 
+.selectedsyllablecomponent {
+	font-weight: bold;
+	border: 1px solid black;
+	box-shadow: 2px 2px 5px black; 
+	}
+
 #tabs {
 	width: 100%;
 	font-size:10pt;
@@ -241,7 +251,9 @@ button {
 	text-align: center;
 	}
 
-
+button img {
+	width:90%;
+	}
 
 
 

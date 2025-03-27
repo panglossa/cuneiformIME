@@ -38,7 +38,7 @@ fetch('./cunIMEglyphSumerAkkad.csv')
 			}
 		i++;
 		} ); 
-	//console.log(glyphdata);
+	console.log(sumerakkaddata);
   });
 
 csv = '';
@@ -56,7 +56,7 @@ fetch('./CVC.csv')
 			}
 		i++;
 		} ); 
-	console.log(cvcdata);
+	//console.log(cvcdata);
   });
   
 favourites = localStorage.getItem('favourites');
@@ -311,6 +311,9 @@ function selectfont(fontname) {
 		}
 	document.querySelector('#maininput').style.fontFamily = fontname;
 	document.querySelector('#candidates').style.fontFamily = fontname;
+	document.querySelector('#candidates_semantic').style.fontFamily = fontname;
+	document.querySelector('#candidates_phonetic').style.fontFamily = fontname;
+	document.querySelector('#candidates_cvc').style.fontFamily = fontname;
 	document.querySelector('#favouriteglyphs').style.fontFamily = fontname;
 	}
 
@@ -366,7 +369,8 @@ function searchphonetic(){
 		if (row[1]!='') {
 			parts = row[1].split('|');
 			parts.forEach(function(part) {
-				if (part.toLowerCase().includes(phonetic.value.toLowerCase())) {
+				//if (part.toLowerCase().includes(phonetic.value.toLowerCase())) {
+				if (searchmatch(part.toLowerCase(), phonetic.value.toLowerCase())) {
 				//if (part.startsWith(buffer.innerHTML)) {
 					ismatch = true;
 					}
@@ -375,7 +379,8 @@ function searchphonetic(){
 		if (row[3]!='') {
 			parts = row[3].split('|');
 			parts.forEach(function(part) {
-				if (part.toLowerCase().includes(phonetic.value.toLowerCase())) {
+				//if (part.toLowerCase().includes(phonetic.value.toLowerCase())) {
+				if (searchmatch(part.toLowerCase(), phonetic.value.toLowerCase())) {
 				//if (part.startsWith(buffer.innerHTML)) {
 					ismatch = true;
 					}
@@ -418,6 +423,9 @@ function composesyllable(index, letter) {
 	cvc0 = document.getElementById('cvc0');
 	cvc1 = document.getElementById('cvc1');
 	cvc2 = document.getElementById('cvc2');
+	if (cvc[0]=='x') {
+		cvc[0] = "'";
+		}
 	cvc0.innerHTML = cvc[0];
 	cvc1.innerHTML = cvc[1];
 	cvc2.innerHTML = cvc[2];
@@ -435,6 +443,28 @@ function composesyllable(index, letter) {
 		} ); 
 	if (cvc[2]!='Ø') {
 		getsecondarysyllables(cvc);
+		}
+	sylbuttons = document.querySelectorAll("#syllablebuilder a");
+	for (let i = 0; i < sylbuttons.length; i++) {
+		sylbuttons[i].classList.remove("selectedsyllablecomponent");
+		}
+	sylbuttons = document.querySelectorAll("#syllablebuilder tr td:first-child a");
+	for (let i = 0; i < sylbuttons.length; i++) {
+		if (sylbuttons[i].innerHTML == cvc[0]) {
+			sylbuttons[i].classList.add("selectedsyllablecomponent");
+			}
+		}
+	sylbuttons = document.querySelectorAll("#syllablebuilder tr td:nth-child(2) a");
+	for (let i = 0; i < sylbuttons.length; i++) {
+		if (sylbuttons[i].innerHTML == cvc[1]) {
+			sylbuttons[i].classList.add("selectedsyllablecomponent");
+			}
+		}
+	sylbuttons = document.querySelectorAll("#syllablebuilder tr td:nth-child(3) a");
+	for (let i = 0; i < sylbuttons.length; i++) {
+		if (sylbuttons[i].innerHTML == cvc[2]) {
+			sylbuttons[i].classList.add("selectedsyllablecomponent");
+			}
 		}
 	}
 	
@@ -497,6 +527,51 @@ function syllablematch(subject, pattern) {
 		});
 	return res;
 	}
+
+function wiktionary() {
+	var txtarea = document.getElementById("maininput");
+	var start = txtarea.selectionStart;
+	var finish = txtarea.selectionEnd;
+	var sel = txtarea.value.substring(start, finish);
+	//alert(sel);
+	if (sel.trim()!='') {
+		window.open('https://en.wiktionary.org/wiki/' + sel, 'wiktionary');
+		}
+	}
+
+function searchmatch(datastring, searchstring) {
+	res = false;
+	let resulta = datastring.replace(/â|ā|á|à|ä|ǎ|ă/gi, function (x) {
+		return 'a';
+		});
+let resulte = resulta.replace(/ê|é|è|ë|ẽ|ē|ě/gi, function (x) {
+  return 'e';
+});
+let resulti = resulte.replace(/î|ĩ|í|ì|ï|ī|ǐ/gi, function (x) {
+  return 'i';
+});
+let resultu = resulti.replace(/ũ|û|ú|ù|ü|ū|ǔ/gi, function (x) {
+  return 'u';
+});
+let results = resultu.replace(/ṣ|š/gi, function (x) {
+  return 's';
+});
+let resulth = results.replace(/ḫ/gi, function (x) {
+  return 'h';
+});
+let resultt = results.replace(/ṭ/gi, function (x) {
+  return 't';
+});
+let resultng = resultt.replace(/g̃/gi, function (x) {
+  return 'ng';
+});
+
+	if (resultng.includes(searchstring)) {
+		res = true;
+		}
+	return res;
+	}
+
 ///////////////////////////////////////
 window.onload = function () {
 	selectedfont = localStorage.getItem('selectedfont');
@@ -513,6 +588,6 @@ window.onload = function () {
 			favouriteglyphs.innerHTML += ' ' + '<a href="#" title="Click to insert this character" onclick="javascript:insertglyph(' + "'" + favourites[i]['glyph'] + "'" + ');return false;">' + favourites[i]['glyph'] + '</a>';
 			}
 		}
-	switchtab(0);
+	switchtab(1);
 	}	
 	

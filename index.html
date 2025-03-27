@@ -14,8 +14,9 @@
 <div id="imepanel">
 <div id="maintext">
 <textarea id="maininput"></textarea><br/>
-<button onclick="javascript:texttoclipboard();return false;">📋</button>
-<button onclick="javascript:cleartext();return false;">🗑</button>
+<button title="Copy to clipboard" onclick="javascript:texttoclipboard();return false;">📋</button>
+<button title="Delete whole text" onclick="javascript:cleartext();return false;">🗑</button>
+<button title="Search selected text in Wiktionary" onclick="javascript:wiktionary();return false;"><img src="enwiktionary.svg" /></button>
 <div id="fontselection">
 Font selection: <i>(click to change)</i>
 <ul>
