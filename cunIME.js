@@ -59,7 +59,7 @@ fetch('./CVC.csv')
 	//console.log(cvcdata);
   });
   
-favourites = localStorage.getItem('favourites');
+favourites = localStorage.getItem('cunimefavourites');
 //console.log(favourites);
 if ((favourites=='')||(favourites==null)) {
 	favourites = [];
@@ -128,7 +128,7 @@ function insertglyph(s) {
 			favouriteglyphs.innerHTML += ' ' + '<a title="Click to insert this character" href="#" onclick="javascript:insertglyph(' + "'" + favourites[i]['glyph'] + "'" + ');return false;">' + favourites[i]['glyph'] + '</a>';
 			}
 		}
-	localStorage.setItem('favourites', JSON.stringify(favourites));
+	localStorage.setItem('cunimefavourites', JSON.stringify(favourites));
 	}
 
 function updatecandidates(){
@@ -295,7 +295,7 @@ function texttoclipboard() {
 
 function clearfavourites() {
 	favourites = [];
-	localStorage.setItem('favourites', JSON.stringify(favourites));
+	localStorage.setItem('cunimefavourites', JSON.stringify(favourites));
 	favouriteglyphs = document.getElementById('favouriteglyphs');
 	favouriteglyphs.innerHTML = '';
 	}
